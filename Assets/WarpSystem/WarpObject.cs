@@ -77,7 +77,7 @@ namespace WarpSystem
         /// </returns>
         public bool IsAbleToWarp(WarpGate warpGate)
         {
-            return warpGate.bounds.Contains(base.bounds) && this.isReadyToWarp;
+            return warpGate.bounds.Contains(base.Bounds) && this.isReadyToWarp;
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace WarpSystem
                 return;
             }
 
-            if (!this.lastWarpGate.bounds.Contains(this.bounds))
+            if (!this.lastWarpGate.bounds.Contains(base.Bounds))
             {
                 this.lastWarpGate  = null;
                 this.isReadyToWarp = true;

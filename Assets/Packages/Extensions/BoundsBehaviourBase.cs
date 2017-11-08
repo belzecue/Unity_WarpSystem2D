@@ -25,6 +25,22 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
 
     #endregion Field
 
+    #region Property
+
+    /// <summary>
+    /// Transform.position を基準とする Bounds を取得します。
+    /// </summary>
+    public Bounds Bounds
+    {
+        get
+        {
+            UpdateBounds();
+            return this.bounds;
+        }
+    }
+
+    #endregion Property
+
     #region Method
 
     /// <summary>
@@ -51,9 +67,10 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
     {
         if (this.drawGizmo)
         {
+            Bounds bounds = Bounds;
             Color previousColor = Gizmos.color;
             Gizmos.color = this.gizmoColor;
-            Gizmos.DrawWireCube(this.bounds.center, this.bounds.size);
+            Gizmos.DrawWireCube(bounds.center, bounds.size);
             Gizmos.color = previousColor;
         }
     }
