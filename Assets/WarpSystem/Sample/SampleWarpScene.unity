@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 429582451}
   - component: {fileID: 429582449}
   - component: {fileID: 429582450}
+  - component: {fileID: 429582453}
   m_Layer: 0
   m_Name: WarpObject
   m_TagString: Untagged
@@ -258,18 +259,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8b2ea086d0d6d418d0c87d568677ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform: {fileID: 429582452}
   bounds:
     m_Center: {x: -2, y: 2, z: 0}
     m_Extent: {x: 0.25, y: 0.25, z: 0.25}
-  drawGizmo: 0
-  gizmoColor: {r: 0, g: 0, b: 0, a: 0}
+  drawGizmo: 1
+  gizmoColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!33 &429582451
 MeshFilter:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429582448}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &429582452
 Transform:
   m_ObjectHideFlags: 0
@@ -283,6 +285,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429582453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429582448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19e532a94d5d2945837eff02b4ab401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 0}
+  speed: 0.1
 --- !u!1 &572873330
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c35cc4b3a97a4d9143790a277044f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform: {fileID: 1249273279}
   bounds:
     m_Center: {x: 2, y: 0, z: 0}
     m_Extent: {x: 1, y: 0.5, z: 0.5}
@@ -406,11 +422,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c35cc4b3a97a4d9143790a277044f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transform: {fileID: 1860238583}
   bounds:
     m_Center: {x: -2, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 1, z: 0.5}
   drawGizmo: 1
-  gizmoColor: {r: 0, g: 0, b: 0, a: 1}
+  gizmoColor: {r: 0.90344834, g: 1, b: 0, a: 1}
   boundsUpdateEvent:
     m_PersistentCalls:
       m_Calls: []

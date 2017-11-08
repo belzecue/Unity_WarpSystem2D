@@ -19,6 +19,11 @@ namespace WarpSystem
         /// </summary>
         protected bool isReadyToWarp = true;
 
+        /// <summary>
+        /// ワープしたときのイベント。
+        /// </summary>
+        public WarpEvent warpEvent;
+
         #endregion Field
 
         #region Method
@@ -53,6 +58,10 @@ namespace WarpSystem
 
             this.lastWarpGate  = warpGate.target;
             this.isReadyToWarp = false;
+
+            WarpEventInfo eventInfo = new WarpEventInfo(this, warpGate);
+            this.warpEvent.Invoke(eventInfo);
+            warpGate.warpEvent.Invoke(eventInfo);
 
             return true;
         }

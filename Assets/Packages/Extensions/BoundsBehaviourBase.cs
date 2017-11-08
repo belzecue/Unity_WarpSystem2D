@@ -2,11 +2,9 @@
 
 /// <summary>
 /// Bounds を持った MonoBehaviour です。
-/// 通常の MonoBehaviour より Awake のパフォーマンスが悪い点に注意します。
-/// 継承クラスでは Awake を override し、base.Awake を呼ぶ必要があります。
 /// </summary>
 [ExecuteInEditMode]
-public class BoundsBehaviourBase : MonoBehaviour
+public class BoundsBehaviourBase : CacheBehaviourTransform
 {
     #region Field
 
@@ -25,41 +23,16 @@ public class BoundsBehaviourBase : MonoBehaviour
     /// </summary>
     public Color gizmoColor = Color.white;
 
-    /// <summary>
-    /// キャッシュされた Transform 。
-    /// </summary>
-    protected Transform transformCache;
-
     #endregion Field
-
-    #region Property
-
-    /// <summary>
-    /// キャッシュされた Transform 。
-    /// 実体は Property で、更新すると Updatebounds メソッドが呼び出されます。
-    /// </summary>
-    public new Transform transform
-    {
-        get { return this.transformCache; }
-        set
-        {
-            this.transformCache = value;
-            UpdateBounds();
-        }
-    }
-
-    #endregion Property
 
     #region Method
 
     /// <summary>
     /// 初期化時に呼び出されます。
-    /// キャッシュのために通常の MonoBehaviour よりパフォーマンスが悪い点に注意します。
-    /// 継承クラスでは override して base.Awake を呼ぶ必要があります。
     /// </summary>
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        this.transformCache = base.transform;
+        base.Awake();
         UpdateBounds();
     }
 
@@ -90,7 +63,7 @@ public class BoundsBehaviourBase : MonoBehaviour
     /// </summary>
     public virtual void UpdateBounds()
     {
-        this.bounds.center = this.transformCache.position;
+        this.bounds.center = base.transform.position;
     }
 
     #endregion Method

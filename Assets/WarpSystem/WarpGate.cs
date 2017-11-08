@@ -14,9 +14,31 @@ namespace WarpSystem
         /// </summary>
         public WarpGate target;
 
+        /// <summary>
+        /// ワープしたときのイベント。
+        /// </summary>
+        public WarpEvent warpEvent;
+
         #endregion Field
 
         #region Method
+
+        /// <summary>
+        /// Gizmo の描画時に呼び出されます。
+        /// </summary>
+        protected override void OnDrawGizmos()
+        {
+            if (!this.drawGizmo)
+            {
+                return;
+            }
+
+            Color previousColor = Gizmos.color;
+            Gizmos.color = this.gizmoColor;
+            Gizmos.DrawWireCube(this.bounds.center, this.bounds.size);
+            GizmosEx.DrawArrow(base.bounds.center, base.transform.rotation * Vector3Ex.Up * base.bounds.extents.magnitude / 3f);
+            Gizmos.color = previousColor;
+        }
 
         /// <summary>
         /// ワープする位置をマッピングします。

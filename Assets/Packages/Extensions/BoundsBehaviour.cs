@@ -41,7 +41,7 @@ public class BoundsBehaviour : BoundsBehaviourBase
     {
         base.UpdateBounds();
 
-        base.bounds.size = base.transformCache.localScale;
+        base.bounds.size = base.transform.localScale;
 
         if (this.previousBouns != base.bounds)
         {
