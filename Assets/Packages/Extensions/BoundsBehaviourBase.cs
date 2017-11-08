@@ -10,6 +10,7 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
 
     /// <summary>
     /// Bounds 。
+    /// 参照時には Property の Bounds を利用することを推奨します。
     /// </summary>
     public Bounds bounds;
 
@@ -55,10 +56,10 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
     /// <summary>
     /// 更新時に呼び出されます。
     /// </summary>
-    protected virtual void Update()
-    {
-        UpdateBounds();
-    }
+    //protected virtual void Update()
+    //{
+    //    UpdateBounds();
+    //}
 
     /// <summary>
     /// Gizmo の秒化時に呼び出されます。
