@@ -8,23 +8,29 @@ public class WarpObjectController : CacheMonoBehaviourTransform
 
     #endregion Field
 
-    void Update ()
+    void Update()
     {
+        Vector3 move = Vector3.zero;
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            base.transform.position += base.transform.up * speed;
+            move = base.transform.up * speed;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            base.transform.position += base.transform.right * -speed;
+            move = base.transform.right * -speed;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            base.transform.position += base.transform.right * speed;
+            move = base.transform.right * speed;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            base.transform.position += base.transform.up * -speed;
+            move = base.transform.up * -speed;
         }
+
+        Vector3 goal = base.transform.position + move;
+
+        base.transform.position = goal;
     }
 }

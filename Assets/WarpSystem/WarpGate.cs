@@ -19,6 +19,11 @@ namespace WarpSystem
         /// </summary>
         public WarpEvent warpEvent;
 
+        /// <summary>
+        /// Gizmo の矢印の長さ。
+        /// </summary>
+        public float gizmoArrowLength = 0.5f;
+
         #endregion Field
 
         #region Method
@@ -36,7 +41,7 @@ namespace WarpSystem
             Color previousColor = Gizmos.color;
             Gizmos.color = this.gizmoColor;
             Gizmos.DrawWireCube(this.bounds.center, this.bounds.size);
-            GizmosEx.DrawArrow(base.bounds.center, base.transform.rotation * Vector3Ex.Up * base.bounds.extents.magnitude / 3f);
+            GizmosEx.DrawArrow(base.bounds.center, base.transform.rotation * Vector3Ex.Up * this.gizmoArrowLength);
             Gizmos.color = previousColor;
         }
 
