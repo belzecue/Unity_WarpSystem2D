@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Bounds を持った MonoBehaviour です。
+/// Transform に連動する Bounds を持った MonoBehaviour です。
 /// </summary>
 [ExecuteInEditMode]
-public class BoundsBehaviourBase : CacheBehaviourTransform
+public class BoundsBehaviourBase : CacheMonoBehaviourTransform
 {
     #region Field
 
     /// <summary>
     /// Bounds 。
-    /// 参照時には Property の Bounds を利用することを推奨します。
     /// </summary>
     public Bounds bounds;
 
@@ -26,22 +25,6 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
 
     #endregion Field
 
-    #region Property
-
-    /// <summary>
-    /// Transform.position を基準とする Bounds を取得します。
-    /// </summary>
-    public Bounds Bounds
-    {
-        get
-        {
-            UpdateBounds();
-            return this.bounds;
-        }
-    }
-
-    #endregion Property
-
     #region Method
 
     /// <summary>
@@ -56,10 +39,10 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
     /// <summary>
     /// 更新時に呼び出されます。
     /// </summary>
-    //protected virtual void Update()
-    //{
-    //    UpdateBounds();
-    //}
+    protected virtual void Update()
+    {
+        UpdateBounds();
+    }
 
     /// <summary>
     /// Gizmo の秒化時に呼び出されます。
@@ -68,16 +51,16 @@ public class BoundsBehaviourBase : CacheBehaviourTransform
     {
         if (this.drawGizmo)
         {
-            Bounds bounds = Bounds;
             Color previousColor = Gizmos.color;
             Gizmos.color = this.gizmoColor;
-            Gizmos.DrawWireCube(bounds.center, bounds.size);
+            Gizmos.DrawWireCube(this.bounds.center, this.bounds.size);
             Gizmos.color = previousColor;
         }
     }
 
     /// <summary>
-    /// Bounds を更新します。Transform が更新されるときなどに任意に呼び出します。
+    /// Bounds を更新します。
+    /// Transform を更新するときに任意に呼び出します。
     /// </summary>
     public virtual void UpdateBounds()
     {

@@ -28,19 +28,14 @@ namespace WarpSystem
 
         #region Method
 
-        protected virtual void Update()
-        {
-            UpdateWarpStatus();
-        }
-
         /// <summary>
         /// 更新時に呼び出されます。
         /// </summary>
-        //protected override void Update()
-        //{
-        //    base.Update();
-        //    UpdateWarpStatus();
-        //}
+        protected override void Update()
+        {
+            base.Update();
+            UpdateWarpStatus();
+        }
 
         /// <summary>
         /// 指定したゲートを使ってワープします。
@@ -82,7 +77,7 @@ namespace WarpSystem
         /// </returns>
         public bool IsAbleToWarp(WarpGate warpGate)
         {
-            return warpGate.bounds.Contains(base.Bounds) && this.isReadyToWarp;
+            return warpGate.bounds.Contains(base.bounds) && this.isReadyToWarp;
         }
 
         /// <summary>
@@ -98,7 +93,7 @@ namespace WarpSystem
                 return;
             }
 
-            if (!this.lastWarpGate.bounds.Contains(base.Bounds))
+            if (!this.lastWarpGate.bounds.Contains(base.bounds))
             {
                 this.lastWarpGate  = null;
                 this.isReadyToWarp = true;

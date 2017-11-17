@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 
 /// <summary>
-/// Bounds.size の変化も監視し、変更を通知する機能を持った BoundsBehaviour です。
+/// Bounds.size の変更にも対応し、変更を通知する機能を持った BoundsBehaviour です。
 /// </summary>
 public class BoundsBehaviour : BoundsBehaviourBase
 {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// GameObject 型の拡張メソッドやユーティリティメソッドを実装します。
+/// GameObject に関する拡張機能を実装します。
 /// </summary>
 public static class GameObjectEx
 {
@@ -12,24 +12,24 @@ public static class GameObjectEx
     /// <typeparam name="T">
     /// Component Type.
     /// </typeparam>
-    /// <param name="gameObject">
+    /// <param name="self">
     /// GameObject.
     /// </param>
-    public static void RemoveComponent<T>(this GameObject gameObject) where T : Component
+    public static void RemoveComponent<T>(this GameObject self) where T : Component
     {
-        GameObject.Destroy(gameObject.GetComponent<T>());
+        GameObject.Destroy(self.GetComponent<T>());
     }
 
     /// <summary>
     /// この GameObject に追加された、すべての Component を削除します。
     /// GetComponent を伴うため非常に負荷が大きい点に注意して下さい。
     /// </summary>
-    /// <param name="gameObject">
+    /// <param name="self">
     /// GameObject.
     /// </param>
-    public static void RemoveAllComponent(this GameObject gameObject)
+    public static void RemoveAllComponent(this GameObject self)
     {
-        Component[] components = gameObject.GetComponents<Component>();
+        Component[] components = self.GetComponents<Component>();
 
         for (int i = 0; i < components.Length; i++)
         {
@@ -41,17 +41,17 @@ public static class GameObjectEx
     /// MaterialPropertyBlock を利用して "_Color" の値を設定します。
     /// GetComponent を伴うため非常に負荷が大きい点に注意して下さい。
     /// </summary>
-    /// <param name="gameObject">
+    /// <param name="self">
     /// GameObject.
     /// </param>
     /// <param name="color">
     /// "_Color" に設定する色。
     /// </param>
-    public static void SetColor(this GameObject gameObject, Color color)
+    public static void SetColor(this GameObject self, Color color)
     {
         MaterialPropertyBlock materialPropertyBlock = new MaterialPropertyBlock();
 
-        Renderer renderer = gameObject.GetComponent<Renderer>();
+        Renderer renderer = self.GetComponent<Renderer>();
 
         renderer.GetPropertyBlock(materialPropertyBlock);
 

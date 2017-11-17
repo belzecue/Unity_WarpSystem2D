@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WarpObjectController : CacheBehaviourTransform
+public class WarpObjectController : CacheMonoBehaviourTransform
 {
     #region Field
 

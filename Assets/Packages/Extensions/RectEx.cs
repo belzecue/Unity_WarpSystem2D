@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Rect の拡張メソッドやユーティリティメソッドを実装します。
+/// Rect に関する拡張機能を実装します。
 /// </summary>
 public static class RectEx
 {

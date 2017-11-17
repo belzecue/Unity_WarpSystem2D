@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Vector3 型の拡張メソッドやユーティリティメソッドを実装します。
+/// Vector3 に関する拡張機能を実装します。
 /// </summary>
 public static class Vector3Ex
 {

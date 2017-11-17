@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Gizmos のユーティリティメソッドを実装します。
+/// Gizmo に関する拡張機能を実装します。
 /// </summary>
 public static class GizmosEx
 {
@@ -52,14 +52,14 @@ public static class GizmosEx
 
         float headLength = Vector3.Distance(from, from + direction) / 3;
 
-        Vector3 up    = Quaternion.LookRotation(direction) * Quaternion.Euler(0, headAngle, 0)  * Vector3.back;
+        Vector3 up    = Quaternion.LookRotation(direction) * Quaternion.Euler(0,  headAngle, 0) * Vector3.back;
         Vector3 down  = Quaternion.LookRotation(direction) * Quaternion.Euler(0, -headAngle, 0) * Vector3.back;
         Vector3 left  = Quaternion.LookRotation(direction) * Quaternion.Euler(-headAngle, 0, 0) * Vector3.back;
-        Vector3 right = Quaternion.LookRotation(direction) * Quaternion.Euler(headAngle, 0, 0)  * Vector3.back;
+        Vector3 right = Quaternion.LookRotation(direction) * Quaternion.Euler( headAngle, 0, 0) * Vector3.back;
 
         Gizmos.DrawRay(from + direction, right * headLength);
-        Gizmos.DrawRay(from + direction, left  * headLength);
-        Gizmos.DrawRay(from + direction, up    * headLength);
-        Gizmos.DrawRay(from + direction, down  * headLength);
+        Gizmos.DrawRay(from + direction, left * headLength);
+        Gizmos.DrawRay(from + direction, up * headLength);
+        Gizmos.DrawRay(from + direction, down * headLength);
     }
 }

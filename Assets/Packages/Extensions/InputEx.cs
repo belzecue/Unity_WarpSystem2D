@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Input の拡張メソッドやユーティリティメソッドを実装します。
+/// 入力に関する拡張機能を実装します。
 /// </summary>
 public static class InputEx
 {

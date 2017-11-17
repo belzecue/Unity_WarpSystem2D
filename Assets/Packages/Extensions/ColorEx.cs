@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Color 型の拡張メソッドやユーティリティメソッドを実装します。
+/// Color に関する拡張機能を実装します。
 /// </summary>
 public static class ColorEx
 {
